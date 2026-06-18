@@ -1,0 +1,4 @@
+com/dpi/classification/SNIExtractorTest.class
+com/dpi/parser/PacketParserTest.class
+com/dpi/flow/FlowTrackerTest.class
+com/dpi/rules/RuleManagerTest.class

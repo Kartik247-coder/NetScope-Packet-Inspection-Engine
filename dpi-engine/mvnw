@@ -1,0 +1,27 @@
+#!/bin/sh
+# Maven Wrapper - runs Maven without requiring it to be installed
+BASE_DIR=$(cd "$(dirname "$0")" && pwd)
+MAVEN_PROJECTBASEDIR="$BASE_DIR"
+export MAVEN_PROJECTBASEDIR
+
+# Find Java
+if [ -n "$JAVA_HOME" ] && [ -x "$JAVA_HOME/bin/java" ]; then
+  JAVACMD="$JAVA_HOME/bin/java"
+else
+  JAVACMD=$(command -v java 2>/dev/null)
+fi
+if [ -z "$JAVACMD" ]; then
+  echo "Error: Java not found. Set JAVA_HOME or add java to PATH." >&2
+  exit 1
+fi
+
+WRAPPER_JAR="$BASE_DIR/.mvn/wrapper/maven-wrapper.jar"
+if [ ! -r "$WRAPPER_JAR" ]; then
+  echo "Error: Maven wrapper jar not found at $WRAPPER_JAR" >&2
+  exit 1
+fi
+
+exec "$JAVACMD" \
+  -classpath "$WRAPPER_JAR" \
+  "-Dmaven.multiModuleProjectDirectory=$MAVEN_PROJECTBASEDIR" \
+  org.apache.maven.wrapper.MavenWrapperMain "$@"
